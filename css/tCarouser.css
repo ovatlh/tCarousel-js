@@ -12,10 +12,10 @@
   --t-in-anim: none;
   --t-out-anim: none;
 
-  --t-anim-s: 0.2s;
+  --t-anim-s: 2s;
   --t-anim-timing: ease-in-out;
   --t-anim-delay: 0s;
-  --t-anim-it-count: 1;
+  --t-anim-it-count: infinite;
   --t-anim-fill-mode: forwards;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .t-active {
-  z-index: 5;
+  z-index: 4;
 }
 
 .t-left,
@@ -133,7 +133,7 @@
 
 @keyframes t-v-in-anim {
   from {
-    transform: translateY(-100%);
+    transform: translateY(100%);
   }
 
   to {
@@ -147,13 +147,13 @@
   }
 
   to {
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
 }
 
 @keyframes t-h-in-anim {
   from {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 
   to {
@@ -167,26 +167,29 @@
   }
 
   to {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 }
 
-.t-in-normal {
-  z-index: 5;
-  animation: var(--t-in-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
-}
-
-.t-out-normal {
+.t-in-prev-exact-active {
   z-index: 4;
-  animation: var(--t-out-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
-}
-
-.t-in-reverse {
-  z-index: 5;
   animation: var(--t-in-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) reverse var(--t-anim-fill-mode);
 }
 
-.t-out-reverse {
-  z-index: 4;
+.t-out-prev-last-active {
+  z-index: 3;
   animation: var(--t-out-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) reverse var(--t-anim-fill-mode);
+}
+
+
+
+
+.t-in-next-exact-active {
+  z-index: 4;
+  animation: var(--t-in-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+}
+
+.t-out-next-last-active {
+  z-index: 3;
+  animation: var(--t-out-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
 }
