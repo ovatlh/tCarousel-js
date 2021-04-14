@@ -7,15 +7,12 @@
   --t-btn-font-size: 40px;
   --t-btn-show-v: grid;
   --t-btn-show-h: grid;
-  --t-btn-opacity: 0;
+  --t-btn-opacity: 0.1;
 
-  --t-in-anim: none;
-  --t-out-anim: none;
-
-  --t-anim-s: 2s;
+  --t-anim-seg: 0.2s;
   --t-anim-timing: ease-in-out;
   --t-anim-delay: 0s;
-  --t-anim-it-count: infinite;
+  --t-anim-it-count: 1;
   --t-anim-fill-mode: forwards;
 }
 
@@ -36,17 +33,11 @@
 .t-v {
   --t-btn-show-v: grid;
   --t-btn-show-h: none;
-  
-  --t-in-anim: t-v-in-anim;
-  --t-out-anim: t-v-out-anim;
 }
 
 .t-h {
   --t-btn-show-h: grid;
   --t-btn-show-v: none;
-  
-  --t-in-anim: t-h-in-anim;
-  --t-out-anim: t-h-out-anim;
 }
 
 .t-items {
@@ -72,7 +63,7 @@
 }
 
 .t-active {
-  z-index: 4;
+  z-index: 5;
 }
 
 .t-left,
@@ -131,65 +122,128 @@
   --t-btn-opacity: 1;
 }
 
-@keyframes t-v-in-anim {
-  from {
-    transform: translateY(100%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes t-v-out-anim {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes t-h-in-anim {
+/* Horizontal buttons */
+/* Button: RIGHT */
+@keyframes t-h-in-right-anim {
   from {
     transform: translateX(100%);
   }
-
   to {
     transform: translateX(0);
   }
 }
 
-@keyframes t-h-out-anim {
+.t-h-in-right {
+  z-index: 4;
+  animation: t-h-in-right-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+}
+
+@keyframes t-h-out-left-anim {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-100%);
   }
 }
 
-.t-in-prev-exact-active {
-  z-index: 4;
-  animation: var(--t-in-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) reverse var(--t-anim-fill-mode);
-}
-
-.t-out-prev-last-active {
+/* Button: LEFT */
+.t-h-out-left {
   z-index: 3;
-  animation: var(--t-out-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) reverse var(--t-anim-fill-mode);
+  animation: t-h-out-left-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
 }
 
+@keyframes t-h-in-left-anim {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
-
-
-.t-in-next-exact-active {
+.t-h-in-left {
   z-index: 4;
-  animation: var(--t-in-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+  animation: t-h-in-left-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
 }
 
-.t-out-next-last-active {
+@keyframes t-h-out-right-anim {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.t-h-out-right {
   z-index: 3;
-  animation: var(--t-out-anim) var(--t-anim-s) var(--t-anim-timing) var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+  animation: t-h-out-right-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+}
+
+/* Vertical buttons */
+/* Button: UP */
+@keyframes t-v-in-up-anim {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.t-v-in-up {
+  z-index: 4;
+  animation: t-v-in-up-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+}
+
+@keyframes t-v-out-down-anim {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.t-v-out-down {
+  z-index: 3;
+  animation: t-v-out-down-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+}
+
+/* Button: DOWN */
+@keyframes t-v-in-down-anim {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.t-v-in-down {
+  z-index: 4;
+  animation: t-v-in-down-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
+}
+
+@keyframes t-v-out-up-anim {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.t-v-out-up {
+  z-index: 3;
+  animation: t-v-out-up-anim var(--t-anim-seg) var(--t-anim-timing)
+    var(--t-anim-delay) var(--t-anim-it-count) normal var(--t-anim-fill-mode);
 }

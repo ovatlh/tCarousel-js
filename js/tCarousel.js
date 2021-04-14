@@ -4,83 +4,143 @@ const tCarousel = {
       return;
     }
 
-    // setTimeout(function () {
-    //   console.log("ID: ", id, "| Time seg: ", (time / 1000), "| Dir: ", direction);
-    //   tCarousel.automatic(id, time, direction);
-    // }, time);
+    setTimeout(function () {
+      switch (direction) {
+        case "left":
+          tCarousel.btnLeft(id);
+          break;
+        case "right":
+          tCarousel.btnRight(id);
+          break;
+        case "up":
+          tCarousel.btnUp(id);
+          break;
+        case "down":
+          tCarousel.btnDown(id);
+          break;
+        default:
+          tCarousel.btnLeft(id);
+          break;
+      }
+      // console.log("ID: ", id, "| Time seg: ", (time / 1000), "| Dir: ", direction);
+      tCarousel.automatic(id, time, direction);
+    }, time);
   },
   btnLeft(parentID) {
-    console.log(`left reverse: ${parentID}`);
     var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
     var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
     var totalItems = items.length;
-    
+    if (totalItems <= 1) {
+      console.log("L - No items: ", parentID, "| Min 2 Items");
+      return;
+    }
+
     var activeIndex = 0;
-    
-    if(!itemActive){
+    if (!itemActive) {
       activeIndex = 0;
     } else {
       activeIndex = Array.from(items).indexOf(itemActive);
     }
 
-    items.forEach(item => {
+    items.forEach((item) => {
       item.classList = "";
       item.classList.add("t-item");
     });
 
-    items[activeIndex].classList.add("t-out-prev-last-active");
+    items[activeIndex].classList.add("t-h-out-right");
 
     var prevIndex = totalItems - 1;
-    if(activeIndex > 0){
+    if (activeIndex > 0) {
       prevIndex = activeIndex - 1;
     }
-    items[prevIndex].classList.add("t-active","t-in-prev-exact-active");
-
-    // items[activeIndex].classList.add("t-out-prev");
-    
-    // var nextIndex = 0;
-    // if(activeIndex < totalItems - 1){
-    //   var nextIndex = activeIndex + 1;
-    // }
-    // items[nextIndex].classList.add("t-active","t-in-next");
-
-    // console.log("Active: ", activeIndex, "| Next: ", nextIndex, "| Total: ", totalItems);
-    console.log("Active: ", activeIndex, "| Total: ", totalItems);
+    items[prevIndex].classList.add("t-active", "t-h-in-left");
   },
   btnRight(parentID) {
-    console.log(`right normal: ${parentID}`);
     var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
     var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
     var totalItems = items.length;
+    if (totalItems <= 1) {
+      console.log("R - No items: ", parentID, "| Min 2 Items");
+      return;
+    }
 
     var activeIndex = 0;
-    
-    if(!itemActive){
+    if (!itemActive) {
       activeIndex = 0;
     } else {
       activeIndex = Array.from(items).indexOf(itemActive);
     }
 
-    items.forEach(item => {
+    items.forEach((item) => {
       item.classList = "";
       item.classList.add("t-item");
     });
 
-    items[activeIndex].classList.add("t-out-next-last-active");
-    
+    items[activeIndex].classList.add("t-h-out-left");
+
     var nextIndex = 0;
-    if(activeIndex < totalItems - 1){
+    if (activeIndex < totalItems - 1) {
       var nextIndex = activeIndex + 1;
     }
-    items[nextIndex].classList.add("t-active","t-in-next-exact-active");
-
-    console.log("Active: ", activeIndex, "| Next: ", nextIndex, "| Total: ", totalItems);
+    items[nextIndex].classList.add("t-active", "t-h-in-right");
   },
   btnUp(parentID) {
-    console.log(`up reverse: ${parentID}`);
+    var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
+    var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
+    var totalItems = items.length;
+    if (totalItems <= 1) {
+      console.log("U - No items: ", parentID, "| Min 2 Items");
+      return;
+    }
+
+    var activeIndex = 0;
+    if (!itemActive) {
+      activeIndex = 0;
+    } else {
+      activeIndex = Array.from(items).indexOf(itemActive);
+    }
+
+    items.forEach((item) => {
+      item.classList = "";
+      item.classList.add("t-item");
+    });
+
+    items[activeIndex].classList.add("t-v-out-down");
+
+    var prevIndex = totalItems - 1;
+    if (activeIndex > 0) {
+      prevIndex = activeIndex - 1;
+    }
+    items[prevIndex].classList.add("t-active", "t-v-in-up");
   },
   btnDown(parentID) {
-    console.log(`down normal: ${parentID}`);
+    var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
+    var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
+    var totalItems = items.length;
+    if (totalItems <= 1) {
+      console.log("R - No items: ", parentID, "| Min 2 Items");
+      return;
+    }
+
+    var activeIndex = 0;
+    if (!itemActive) {
+      activeIndex = 0;
+    } else {
+      activeIndex = Array.from(items).indexOf(itemActive);
+    }
+
+    items.forEach((item) => {
+      item.classList = "";
+      item.classList.add("t-item");
+    });
+
+    items[activeIndex].classList.add("t-v-out-up");
+
+    var nextIndex = 0;
+    if (activeIndex < totalItems - 1) {
+      var nextIndex = activeIndex + 1;
+    }
+    items[nextIndex].classList.add("t-active", "t-v-in-down");
   },
   btnEvents() {
     const btnsLeft = document.querySelectorAll(".t-left");
