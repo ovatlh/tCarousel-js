@@ -8,6 +8,8 @@
   --body-bg: #1e1e1e;
   --body-clr: #e1e1e1;
   --body-font-family: "Segoe UI";
+  --main-pdd: 10px;
+  --main-gp: 10px;
 }
 
 body {
@@ -18,13 +20,17 @@ body {
 
 main {
   display: grid;
-  padding: 10px;
-  gap: 10px;
-  grid-template-areas: "A B" "C D";
+  padding: var(--main-pdd);
+  gap: var(--main-gp);
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
 
   min-height: 100vh;
+}
+
+@media screen and (min-width: 0px) and (max-width: 425px) {
+  main {
+    grid-template-columns: 1fr;
+  }
 }
 
 .content {

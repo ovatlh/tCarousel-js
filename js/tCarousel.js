@@ -22,7 +22,6 @@ const tCarousel = {
           tCarousel.btnLeft(id);
           break;
       }
-      // console.log("ID: ", id, "| Time seg: ", (time / 1000), "| Dir: ", direction);
       tCarousel.automatic(id, time, direction);
     }, time);
   },
