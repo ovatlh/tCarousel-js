@@ -73,3 +73,18 @@ main {
   top: 0;
   font-size: 14px;
 }
+
+.link-repo {
+  z-index: 5;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-decoration: none;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.link-repo:hover {
+  text-decoration: underline;
+}
