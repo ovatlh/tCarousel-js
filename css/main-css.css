@@ -5,11 +5,13 @@
 }
 
 :root {
-  --body-bg: #1e1e1e;
-  --body-clr: #e1e1e1;
+  --body-bg: #e1e1e1;
+  --body-clr: #1e1e1e;
   --body-font-family: "Segoe UI";
   --main-pdd: 10px;
   --main-gp: 10px;
+
+  --content-clr: #ffffff;
 }
 
 body {
@@ -37,6 +39,7 @@ main {
   display: grid;
   place-items: center;
   font-size: 32px;
+  color: var(--content-clr);
 }
 
 .p-1 {
