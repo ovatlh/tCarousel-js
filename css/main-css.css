@@ -88,3 +88,18 @@ main {
 .link-repo:hover {
   text-decoration: underline;
 }
+
+.link-io {
+  z-index: 5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-decoration: none;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.link-io:hover {
+  text-decoration: underline;
+}
