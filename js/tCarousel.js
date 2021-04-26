@@ -1,199 +1,212 @@
 const tCarousel = {
-  automatic(id, time, direction) {
+  // tCarousel
+  class_tCarousel: "t-carousel",
+  class_tActive: "t-active",
+  class_tItems: "t-items",
+  class_tItem: "t-item",
+  // Buttons
+  class_Btn_Left: "t-left",
+  class_Btn_Right: "t-right",
+  class_Btn_Up: "t-up",
+  class_Btn_Down: "t-down",
+  // Animations
+  // -- IN
+  class_t_H_IN_Left: "t-h-in-left",
+  class_t_H_IN_Right: "t-h-in-right",
+  class_t_V_IN_Up: "t-v-in-up",
+  class_t_V_IN_Down: "t-v-in-down",
+  // -- OUT
+  class_t_H_OUT_Left: "t-h-out-left",
+  class_t_H_OUT_Right: "t-h-out-right",
+  class_t_V_OUT_Up: "t-v-out-up",
+  class_t_V_OUT_Down: "t-v-out-down",
+  // Error Messages
+  error_tCNoID: "t-carousel without ID",
+  error_NoItems: "No items",
+  error_Min2Items: "Min 2 items",
+  // Automatic tCarousel
+  tAutomatic(id, time, direction) {
     if (!id || !time || !direction) {
       return;
     }
-
     setTimeout(function () {
       switch (direction) {
         case "left":
-          tCarousel.btnLeft(id);
+          tCarousel.tBTN_Left(id);
           break;
         case "right":
-          tCarousel.btnRight(id);
+          tCarousel.tBTN_Right(id);
           break;
         case "up":
-          tCarousel.btnUp(id);
+          tCarousel.tBTN_Up(id);
           break;
         case "down":
-          tCarousel.btnDown(id);
+          tCarousel.tBTN_Down(id);
           break;
         default:
-          tCarousel.btnLeft(id);
+          tCarousel.tBTN_Left(id);
           break;
       }
-      tCarousel.automatic(id, time, direction);
+      tCarousel.tAutomatic(id, time, direction);
     }, time);
   },
-  btnLeft(parentID) {
-    var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
-    var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
+  tBTN_Left(parent_id) {
+    var items = document.querySelectorAll(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tItem}`);
+    var itemActive = document.querySelector(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tActive}`);
     var totalItems = items.length;
     if (totalItems <= 1) {
-      console.log("L - No items: ", parentID, "| Min 2 Items");
+      console.log(`L - ${tCarousel.error_NoItems}: ", ${parent_id}, "| ${tCarousel.error_Min2Items}`);
       return;
     }
-
     var activeIndex = 0;
     if (!itemActive) {
       activeIndex = 0;
     } else {
       activeIndex = Array.from(items).indexOf(itemActive);
     }
-
     items.forEach((item) => {
       item.classList = "";
-      item.classList.add("t-item");
+      item.classList.add(`${tCarousel.class_tItem}`);
     });
-
-    items[activeIndex].classList.add("t-h-out-right");
+    items[activeIndex].classList.add(`${tCarousel.class_t_H_OUT_Right}`);
 
     var prevIndex = totalItems - 1;
     if (activeIndex > 0) {
       prevIndex = activeIndex - 1;
     }
-    items[prevIndex].classList.add("t-active", "t-h-in-left");
+
+    items[prevIndex].classList.add(`${tCarousel.class_tActive}`, `${tCarousel.class_t_H_IN_Left}`);
   },
-  btnRight(parentID) {
-    var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
-    var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
+  tBTN_Right(parent_id) {
+    var items = document.querySelectorAll(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tItem}`);
+    var itemActive = document.querySelector(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tActive}`);
     var totalItems = items.length;
     if (totalItems <= 1) {
-      console.log("R - No items: ", parentID, "| Min 2 Items");
+      console.log(`R - ${tCarousel.error_NoItems}: ", ${parent_id}, "| ${tCarousel.error_Min2Items}`);
       return;
     }
-
     var activeIndex = 0;
     if (!itemActive) {
       activeIndex = 0;
     } else {
       activeIndex = Array.from(items).indexOf(itemActive);
     }
-
     items.forEach((item) => {
       item.classList = "";
-      item.classList.add("t-item");
+      item.classList.add(`${tCarousel.class_tItem}`);
     });
-
-    items[activeIndex].classList.add("t-h-out-left");
+    items[activeIndex].classList.add(`${tCarousel.class_t_H_OUT_Left}`);
 
     var nextIndex = 0;
     if (activeIndex < totalItems - 1) {
       var nextIndex = activeIndex + 1;
     }
-    items[nextIndex].classList.add("t-active", "t-h-in-right");
+
+    items[nextIndex].classList.add(`${tCarousel.class_tActive}`, `${tCarousel.class_t_H_IN_Right}`);
   },
-  btnUp(parentID) {
-    var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
-    var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
+  tBTN_Up(parent_id) {
+    var items = document.querySelectorAll(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tItem}`);
+    var itemActive = document.querySelector(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tActive}`);
     var totalItems = items.length;
     if (totalItems <= 1) {
-      console.log("U - No items: ", parentID, "| Min 2 Items");
+      console.log(`U - ${tCarousel.error_NoItems}: ", ${parent_id}, "| ${tCarousel.error_Min2Items}`);
       return;
     }
-
     var activeIndex = 0;
     if (!itemActive) {
       activeIndex = 0;
     } else {
       activeIndex = Array.from(items).indexOf(itemActive);
     }
-
     items.forEach((item) => {
       item.classList = "";
-      item.classList.add("t-item");
+      item.classList.add(`${tCarousel.class_tItem}`);
     });
-
-    items[activeIndex].classList.add("t-v-out-down");
+    items[activeIndex].classList.add(`${tCarousel.class_t_V_OUT_Down}`);
 
     var prevIndex = totalItems - 1;
     if (activeIndex > 0) {
       prevIndex = activeIndex - 1;
     }
-    items[prevIndex].classList.add("t-active", "t-v-in-up");
+
+    items[prevIndex].classList.add(`${tCarousel.class_tActive}`, `${tCarousel.class_t_V_IN_Up}`);
   },
-  btnDown(parentID) {
-    var items = document.querySelectorAll(`#${parentID} .t-items .t-item`);
-    var itemActive = document.querySelector(`#${parentID} .t-items .t-active`);
+  tBTN_Down(parent_id) {
+    var items = document.querySelectorAll(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tItem}`);
+    var itemActive = document.querySelector(`#${parent_id} .${tCarousel.class_tItems} .${tCarousel.class_tActive}`);
     var totalItems = items.length;
     if (totalItems <= 1) {
-      console.log("R - No items: ", parentID, "| Min 2 Items");
+      console.log(`D - ${tCarousel.error_NoItems}: ", ${parent_id}, "| ${tCarousel.error_Min2Items}`);
       return;
     }
-
     var activeIndex = 0;
     if (!itemActive) {
       activeIndex = 0;
     } else {
       activeIndex = Array.from(items).indexOf(itemActive);
     }
-
     items.forEach((item) => {
       item.classList = "";
-      item.classList.add("t-item");
+      item.classList.add(`${tCarousel.class_tItem}`);
     });
-
-    items[activeIndex].classList.add("t-v-out-up");
+    items[activeIndex].classList.add(`${tCarousel.class_t_V_OUT_Up}`);
 
     var nextIndex = 0;
     if (activeIndex < totalItems - 1) {
       var nextIndex = activeIndex + 1;
     }
-    items[nextIndex].classList.add("t-active", "t-v-in-down");
+
+    items[nextIndex].classList.add(`${tCarousel.class_tActive}`, `${tCarousel.class_t_V_IN_Down}`);
   },
-  btnEvents() {
-    const btnsLeft = document.querySelectorAll(".t-left");
-    const btnsRight = document.querySelectorAll(".t-right");
-    const btnsUp = document.querySelectorAll(".t-up");
-    const btnsDown = document.querySelectorAll(".t-down");
-
-    btnsLeft.forEach(function (button, index, array) {
-      button.addEventListener("click", function () {
-        tCarousel.btnLeft(this.parentNode.id);
+  tBTN_ClickEvents() {
+    const btns_Left = document.querySelectorAll(`.${tCarousel.class_Btn_Left}`);
+    const btns_Right = document.querySelectorAll(`.${tCarousel.class_Btn_Right}`);
+    const btns_Up = document.querySelectorAll(`.${tCarousel.class_Btn_Up}`);
+    const btns_Down = document.querySelectorAll(`.${tCarousel.class_Btn_Down}`);
+    btns_Left.forEach(function (button) {
+      button.addEventListener("click", function() {
+        tCarousel.tBTN_Left(this.parentNode.id);
       });
     });
-    btnsRight.forEach(function (button, index, array) {
-      button.addEventListener("click", function () {
-        tCarousel.btnRight(this.parentNode.id);
+    btns_Right.forEach(function (button) {
+      button.addEventListener("click", function() {
+        tCarousel.tBTN_Right(this.parentNode.id);
       });
     });
-    btnsUp.forEach(function (button, index, array) {
-      button.addEventListener("click", function () {
-        tCarousel.btnUp(this.parentNode.id);
+    btns_Up.forEach(function (button) {
+      button.addEventListener("click", function() {
+        tCarousel.tBTN_Up(this.parentNode.id);
       });
     });
-    btnsDown.forEach(function (button, index, array) {
-      button.addEventListener("click", function () {
-        tCarousel.btnDown(this.parentNode.id);
+    btns_Down.forEach(function (button) {
+      button.addEventListener("click", function() {
+        tCarousel.tBTN_Down(this.parentNode.id);
       });
     });
   },
-  init() {
-    var tCarouselContainers = document.querySelectorAll(".t-carousel");
-
-    tCarouselContainers.forEach(function (value, index, array) {
-      if (value?.id) {
-        const tItemsContainer = document.querySelector(`#${value.id} .t-items`);
-
-        const itemActive = document.querySelector(
-          `#${value.id} .t-items .t-active`
-        );
+  tSetup(){
+    var tCarouselContainers = document.querySelectorAll(`.${tCarousel.class_tCarousel}`);
+    tCarouselContainers.forEach(function (tC) {
+      if (tC?.id) {
+        const tItemsContainer = document.querySelector(`#${tC.id} .${tCarousel.class_tItems}`);
+        const itemActive = document.querySelector(`#${tC.id} .${tCarousel.class_tItems} .${tCarousel.class_tActive}`);
         if (!itemActive && tItemsContainer?.childElementCount > 0) {
-          tItemsContainer.children[0].classList.add("t-active");
+          tItemsContainer.children[0].classList.add(`${tCarousel.class_tActive}`);
         }
-
-        tCarousel.automatic(
-          value.id,
-          value.dataset.tcTimeSeg * 1000,
-          value.dataset.tcDirection
+        tCarousel.tAutomatic(
+          tC.id,
+          tC.dataset.tcTimeSeg * 1000,
+          tC.dataset.tcDirection
         );
       } else {
-        console.log("t-carousel without ID");
+        console.log(`${tCarousel.error_tCNoID}`);
       }
     });
-
-    tCarousel.btnEvents();
+  },
+  tInit() {
+    tCarousel.tSetup();
+    tCarousel.tBTN_ClickEvents();
   },
 };
 
-tCarousel.init();
+tCarousel.tInit();
