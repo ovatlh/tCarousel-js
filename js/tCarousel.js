@@ -1,5 +1,6 @@
 const tCarousel = {
   // tCarousel
+  class_tBTN: "t-btn",
   class_tCarousel: "t-carousel",
   class_tActive: "t-active",
   class_tItems: "t-items",
@@ -27,13 +28,12 @@ const tCarousel = {
   intervalsObj: {},
   tAutomatic(id, time, direction) {
     if (!tCarousel.intervalsObj[`${id}`]) {
-      console.log("tCarousel - Automatic: ",id, time, direction);
+      console.log("tCarousel - Automatic: ", id, time, direction);
       tCarousel.intervalsObj[`${id}`] = setInterval(() => {
         tCarousel.tBTN(id, direction);
       }, time);
-    }
-    else {
-      console.log("tCarousel - Running: ",id, time, direction);
+    } else {
+      console.log("tCarousel - Running: ", id, time, direction);
     }
   },
   tBTN(id, direction) {
@@ -140,32 +140,55 @@ const tCarousel = {
       }
     }
   },
+  tBTNExtra(event) {
+    var res_tC = event.target.closest(`.${tCarousel.class_tCarousel}`);
+    var btn = event.target.closest(`.${tCarousel.class_tBTN}`);
+    
+    if(btn.classList.contains(`${tCarousel.class_Btn_Left}`)) {
+      tCarousel.tBTN(res_tC.id, "left");
+    }
+    if(btn.classList.contains(`${tCarousel.class_Btn_Right}`)) {
+      tCarousel.tBTN(res_tC.id, "right");
+    }
+    if(btn.classList.contains(`${tCarousel.class_Btn_Up}`)) {
+      tCarousel.tBTN(res_tC.id, "up");
+    }
+    if(btn.classList.contains(`${tCarousel.class_Btn_Down}`)) {
+      tCarousel.tBTN(res_tC.id, "down");
+    }
+  },
   tBTN_ClickEvents() {
     const btns_Left = document.querySelectorAll(`.${tCarousel.class_Btn_Left}`);
-    const btns_Right = document.querySelectorAll(
-      `.${tCarousel.class_Btn_Right}`
-    );
+    const btns_Right = document.querySelectorAll(`.${tCarousel.class_Btn_Right}`);
     const btns_Up = document.querySelectorAll(`.${tCarousel.class_Btn_Up}`);
     const btns_Down = document.querySelectorAll(`.${tCarousel.class_Btn_Down}`);
-    btns_Left.forEach(function (button) {
-      button.addEventListener("click", function () {
-        tCarousel.tBTN(this.parentNode.id, "left");
-      });
+    
+    btns_Left.forEach((button) => {
+      button.removeEventListener("click", tCarousel.tBTNExtra);
     });
-    btns_Right.forEach(function (button) {
-      button.addEventListener("click", function () {
-        tCarousel.tBTN(this.parentNode.id, "right");
-      });
+    btns_Left.forEach((button) => {
+      button.addEventListener("click", tCarousel.tBTNExtra);
     });
-    btns_Up.forEach(function (button) {
-      button.addEventListener("click", function () {
-        tCarousel.tBTN(this.parentNode.id, "up");
-      });
+
+    btns_Right.forEach((button) => {
+      button.removeEventListener("click", tCarousel.tBTNExtra);
     });
-    btns_Down.forEach(function (button) {
-      button.addEventListener("click", function () {
-        tCarousel.tBTN(this.parentNode.id, "down");
-      });
+    btns_Right.forEach((button) => {
+      button.addEventListener("click", tCarousel.tBTNExtra);
+    });
+    
+    btns_Up.forEach((button) => {
+      button.removeEventListener("click", tCarousel.tBTNExtra);
+    });
+    btns_Up.forEach((button) => {
+      button.addEventListener("click", tCarousel.tBTNExtra);
+    });
+    
+    btns_Down.forEach((button) => {
+      button.removeEventListener("click", tCarousel.tBTNExtra);
+    });
+    btns_Down.forEach((button) => {
+      button.addEventListener("click", tCarousel.tBTNExtra);
     });
   },
   tSetup() {
