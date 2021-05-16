@@ -231,10 +231,10 @@ const tCarousel = {
             `${tCarousel.class_tActive}`
           );
         }
-        if (tC?.id && tC.dataset?.tcTimeSeg && tC.dataset?.tcDirection) {
+        if (tC?.id && tC.dataset?.tcTimeSec && tC.dataset?.tcDirection) {
           tCarousel.tAutomatic(
             tC.id,
-            tC.dataset.tcTimeSeg * 1000,
+            tC.dataset.tcTimeSec * 1000,
             tC.dataset.tcDirection
           );
         }
