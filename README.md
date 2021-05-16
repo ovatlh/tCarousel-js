@@ -69,12 +69,12 @@ It is important to add an **id** to work.
 
 For the automatic mode it is important to add 2 "data-" attributes.
 
-    data-tc-time-seg="10"
+    data-tc-time-sec="10"
     data-tc-direction="direction" left|right|up|down
 
-#### `data-tc-time-seg`
+#### `data-tc-time-sec`
 These are the seconds it takes to change to the next element. You can set as many seconds as you want.
-#### `data-tc-direction="direction"`direction=left | right | up | down
+#### `data-tc-direction="direction"` direction=left | right | up | down
 Specifies the direction for automatic change
 
 #### tInit() - Add basic functionality
@@ -99,11 +99,11 @@ If no **id** is specified, the carousel will not work, the buttons will not reac
 
 In automatic mode, it is important to specify the **seconds**, the **direction** and the **id**.
 
-    <div class="t-carousel t-h" id="any-unique-id" data-tc-time-seg="10" data-tc-direction="right">
+    <div class="t-carousel t-h" id="any-unique-id" data-tc-time-sec="10" data-tc-direction="right">
 
 When changing the "t-item", some classes are added to the elements inside the container div with class "t-items" to animate the input and output.
 
-    <div class="t-carousel t-h" id="any-unique-id" data-tc-time-seg="10" data-tc-direction="down">
+    <div class="t-carousel t-h" id="any-unique-id" data-tc-time-sec="10" data-tc-direction="down">
       <div class="t-items">		<--- !t-items container
         <div class="t-item">		<---!t-item
           <p>Content-01</p>				<---!tyour content
