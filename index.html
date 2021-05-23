@@ -12,7 +12,8 @@
   <meta name="description" content="tCarousel-js, simple carousel with js.">
   <meta name="subject" content="tCarousel-js, simple carousel with js.">
   <meta name="author" content="@ovatlh">
-  <meta name="keywords" content="@ovatlh, tcarousel-js, tcarousel, carousel, js, dynamic carousel, simple carousel, html, css, javascript, js vanilla">
+  <meta name="keywords"
+    content="@ovatlh, tcarousel-js, tcarousel, carousel, js, dynamic carousel, simple carousel, html, css, javascript, js vanilla">
   <meta name="og:title" content="@ovatlh | tCarousel-js">
   <meta name="og:site_name" content="@ovatlh | tCarousel-js">
   <meta name="og:image" content="https://raw.githubusercontent.com/ovatlh/tCarousel-js/main/assets/tcarousel-js.PNG">
@@ -22,7 +23,7 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/main-css.css">
-  
+
   <!-- tCarousel assets -->
   <link rel="stylesheet" href="css/tCarousel.css">
   <!-- <script src="js/tCarousel.js" defer></script> -->
@@ -31,28 +32,29 @@
 </head>
 
 <body>
-  <main>
-    <div class="t-carousel t-h" id="tC-01" data-tc-time-sec="1" data-tc-direction="right">
+  <div class="page">
+
+    <div class="t-carousel t-h" id="tC-01" data-tc-time-sec="3" data-tc-direction="right">
 
       <div class="t-items">
         <div class="t-item">
-          <p class="content p-1">1</p>
+          <p class="content p-1">tCarousel-js</p>
         </div>
 
         <div class="t-item">
-          <p class="content p-2">2</p>
+          <p class="content p-2">Easy dynamic carousel with js vanilla</p>
         </div>
 
         <div class="t-item">
-          <p class="content p-3">3</p>
+          <p class="content p-3">Scroll down for some examples</p>
         </div>
 
         <div class="t-item">
-          <p class="content p-4">4</p>
+          <p class="content p-4">🦍</p>
         </div>
 
         <div class="t-item">
-          <p class="content p-5">5</p>
+          <p class="content p-5">👀</p>
         </div>
       </div>
 
@@ -71,127 +73,140 @@
       </button>
     </div>
 
-    <div class="t-carousel t-v" id="tC-02" data-tc-time-sec="1" data-tc-direction="down">
-
-      <div class="t-items">
-        <div class="t-item">
-          <p class="content p-1">1</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-2">2</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-3">3</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-4">4</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-5">5</p>
-        </div>
-      </div>
-
-
-      <button class="t-btn t-left">
-        <i class="fas fa-caret-left"></i>
-      </button>
-      <button class="t-btn t-right">
-        <i class="fas fa-caret-right"></i>
-      </button>
-      <button class="t-btn t-up">
-        <i class="fas fa-caret-up"></i>
-      </button>
-      <button class="t-btn t-down">
-        <i class="fas fa-caret-down"></i>
-      </button>
+    <div class="info">
+      <p>You can override the default animations and place the ones you want.</p>
+      <p>Check the html code of this page and also check the css file to see how the animations below are created.</p>
+      <br />
+      <a href="css/main-css.css" target="_blank">> CSS file</a>
     </div>
 
-    <div class="t-carousel t-v" id="tC-03" data-tc-time-sec="1" data-tc-direction="up">
-
-      <div class="t-items">
-        <div class="t-item">
-          <p class="content p-1">1</p>
+    <div class="examples">
+      <div class="t-carousel t-h custom-01" id="ex-01" data-tc-time-sec="6" data-tc-direction="right">
+        <div class="t-items">
+          <div class="t-item">
+            <p class="content p-1">Custom animation: Example 01</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-2">hi!</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-3">🦍</p>
+          </div>
         </div>
-
-        <div class="t-item">
-          <p class="content p-2">2</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-3">3</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-4">4</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-5">5</p>
-        </div>
+  
+  
+        <button class="t-btn t-left">
+          <i class="fas fa-caret-left"></i>
+        </button>
+        <button class="t-btn t-right">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        <button class="t-btn t-up">
+          <i class="fas fa-caret-up"></i>
+        </button>
+        <button class="t-btn t-down">
+          <i class="fas fa-caret-down"></i>
+        </button>
       </div>
 
-
-      <button class="t-btn t-left">
-        <i class="fas fa-caret-left"></i>
-      </button>
-      <button class="t-btn t-right">
-        <i class="fas fa-caret-right"></i>
-      </button>
-      <button class="t-btn t-up">
-        <i class="fas fa-caret-up"></i>
-      </button>
-      <button class="t-btn t-down">
-        <i class="fas fa-caret-down"></i>
-      </button>
-    </div>
-
-    <div class="t-carousel t-h" id="tC-04" data-tc-time-sec="1" data-tc-direction="left">
-
-      <div class="t-items">
-        <div class="t-item">
-          <p class="content p-1">1</p>
+      <div class="t-carousel t-h custom-02" id="ex-02" data-tc-time-sec="2" data-tc-direction="right">
+        <div class="t-items">
+          <div class="t-item">
+            <p class="content p-1">Custom animation: Example 02</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-2">hi!</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-3">🦍</p>
+          </div>
         </div>
-
-        <div class="t-item">
-          <p class="content p-2">2</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-3">3</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-4">4</p>
-        </div>
-
-        <div class="t-item">
-          <p class="content p-5">5</p>
-        </div>
+  
+  
+        <button class="t-btn t-left">
+          <i class="fas fa-caret-left"></i>
+        </button>
+        <button class="t-btn t-right">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        <button class="t-btn t-up">
+          <i class="fas fa-caret-up"></i>
+        </button>
+        <button class="t-btn t-down">
+          <i class="fas fa-caret-down"></i>
+        </button>
       </div>
 
+      <div class="t-carousel t-h custom-03" id="ex-03" data-tc-time-sec="5" data-tc-direction="right">
+        <div class="t-items">
+          <div class="t-item">
+            <p class="content p-1">Custom animation: Example 03</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-2">hi!</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-3">🦍</p>
+          </div>
+        </div>
+  
+  
+        <button class="t-btn t-left">
+          <i class="fas fa-caret-left"></i>
+        </button>
+        <button class="t-btn t-right">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        <button class="t-btn t-up">
+          <i class="fas fa-caret-up"></i>
+        </button>
+        <button class="t-btn t-down">
+          <i class="fas fa-caret-down"></i>
+        </button>
+      </div>
 
-      <button class="t-btn t-left">
-        <i class="fas fa-caret-left"></i>
-      </button>
-      <button class="t-btn t-right">
-        <i class="fas fa-caret-right"></i>
-      </button>
-      <button class="t-btn t-up">
-        <i class="fas fa-caret-up"></i>
-      </button>
-      <button class="t-btn t-down">
-        <i class="fas fa-caret-down"></i>
-      </button>
+      <div class="t-carousel t-h custom-04" id="ex-04" data-tc-time-sec="3" data-tc-direction="right">
+        <div class="t-items">
+          <div class="t-item">
+            <p class="content p-1">Custom animation: Example 04</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-2">hi!</p>
+          </div>
+  
+          <div class="t-item">
+            <p class="content p-3">🦍</p>
+          </div>
+        </div>
+  
+  
+        <button class="t-btn t-left">
+          <i class="fas fa-caret-left"></i>
+        </button>
+        <button class="t-btn t-right">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        <button class="t-btn t-up">
+          <i class="fas fa-caret-up"></i>
+        </button>
+        <button class="t-btn t-down">
+          <i class="fas fa-caret-down"></i>
+        </button>
+      </div>
     </div>
 
-    <p class="author">@ovatlh | tCarousel-js</p>
-    <a class="link-repo" href="https://github.com/ovatlh/tCarousel-js" target="_blank">> github - repo</a>
-    <a class="link-io" href="https://ovatlh.github.io/" target="_blank">> @ovatlh</a>
-  </main>
+    <div class="about">
+      <a href="https://github.com/ovatlh/tCarousel-js" target="_blank">> GitHub | tCarousel-js</a>
+      <a href="https://ovatlh.github.io/" target="_blank">> by @ovatlh</a>
+    </div>
+  </div>
 </body>
 
 </html>
